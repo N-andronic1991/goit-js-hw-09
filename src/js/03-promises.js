@@ -11,8 +11,8 @@ form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  for (let i = 1; i <= Number(form.amount.value); i += 1) {
-    createPromise(i, Number(form.delay.value) + Number(form.step.value) * i)
+  for (let i = 0; i < Number(form.amount.value); i += 1) {
+    createPromise(i + 1, Number(form.delay.value) + Number(form.step.value) * i)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
           `✅Fulfilled promise ${position} in ${delay}ms`
